@@ -1,0 +1,43 @@
+{
+  "name": "Patrol Tracking System",
+  "short_name": "Patrol Track",
+  "description": "Real-time patrol monitoring and tracking system",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Patrol Mobile",
+      "short_name": "Patrol",
+      "description": "Start patrol tracking",
+      "url": "/patrol",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "HQ Control",
+      "short_name": "HQ",
+      "description": "Open control dashboard",
+      "url": "/hq",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

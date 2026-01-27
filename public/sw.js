@@ -1,12 +1,13 @@
 const CACHE_NAME = 'patrol-tracking-v1';
-const OFFLINE_URL = '/offline.html';
+const BASE_PATH = '/jubilant-parakeet';
+const OFFLINE_URL = `${BASE_PATH}/offline.html`;
 
 // Assets to cache immediately
 const PRECACHE_ASSETS = [
-  '/',
-  '/patrol',
-  '/hq',
-  '/offline.html'
+  `${BASE_PATH}/`,
+  `${BASE_PATH}/patrol`,
+  `${BASE_PATH}/hq`,
+  `${BASE_PATH}/offline.html`
 ];
 
 // Install event - cache essential assets

@@ -43,6 +43,11 @@ This application uses Supabase for backend functionality. You need to configure 
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
    ```
 
+**Optional:** To change the base path (default: `/jubilant-parakeet`), set:
+   ```
+   NEXT_PUBLIC_BASE_PATH=/your-custom-path
+   ```
+
 **Note:** GitHub Pages serves static files only. Environment variables prefixed with `NEXT_PUBLIC_` are embedded during build time. If you need runtime configuration, consider using a different hosting solution like Vercel or Netlify.
 
 ### What Was Changed

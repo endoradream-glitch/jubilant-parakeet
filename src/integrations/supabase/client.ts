@@ -6,9 +6,12 @@ import type { Database } from "./types";
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
-// Only validate in browser (not during build)
-if (typeof window !== 'undefined' && (!SUPABASE_URL || !SUPABASE_ANON_KEY)) {
-  console.error("Missing Supabase environment variables. Please check .env.local file.");
+// Only validate at runtime in the browser (not during build or in tests)
+const isBrowser = typeof window !== 'undefined';
+const isProduction = process.env.NODE_ENV === 'production';
+
+if (isBrowser && isProduction && (!SUPABASE_URL || !SUPABASE_ANON_KEY)) {
+  console.error("Missing Supabase environment variables. Please check your configuration.");
 }
 
 // Use dummy values during build if not set

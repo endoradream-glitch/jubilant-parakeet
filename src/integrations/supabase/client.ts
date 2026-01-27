@@ -6,11 +6,16 @@ import type { Database } from "./types";
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
-if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-  throw new Error("Missing Supabase environment variables. Please check .env.local file.");
+// Only validate in browser (not during build)
+if (typeof window !== 'undefined' && (!SUPABASE_URL || !SUPABASE_ANON_KEY)) {
+  console.error("Missing Supabase environment variables. Please check .env.local file.");
 }
 
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_ANON_KEY, {
+// Use dummy values during build if not set
+const url = SUPABASE_URL || "https://placeholder.supabase.co";
+const key = SUPABASE_ANON_KEY || "placeholder-key";
+
+export const supabase = createClient<Database>(url, key, {
   auth: {
     persistSession: true,
     autoRefreshToken: true,
